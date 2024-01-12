@@ -33,7 +33,6 @@
 
             <label for="censor">Which word do you wanna censor?</label>
             <input type="text" name="censoredWord" id="censoredWord">
-            <button type="submit">Replace</button>
             <!-- scelgo la parola da rimpiazzare dentro '', '' inserisco la parola con cui voglio rimpiazzarla, inserisco il testo dentro la quale voglio sostituirla. il tutto dentro str_replace -->
             <p><?php echo str_replace($_GET['censoredWord'], '***', $chorusSleepwalingBmth); ?>
  </p>
