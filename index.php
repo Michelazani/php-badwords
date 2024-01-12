@@ -20,27 +20,25 @@
         It is like I am sleepwalking';
         $songTitle='Sleepwalinking';
         $bandName='Bring Me The Horizon';
-        // scelgo la parola da rimpiazzare dentro '', '' inserisco la parola con cui voglio rimpiazzarla, inserisco il testo dentro la quale voglio sostituirla. il tutto dentro str_replace
-        $censoredWord=str_replace('me', '***', $chorusSleepwalingBmth) 
     ?>
 
+    <form action="./index.php" method="GET">
+        <div>
+            <!-- tramite echo e $nomeVariabile riporto nell'html quello che voglio -->
+            <h1> <?php echo $bandName; ?> </h1>
+            <h2> <?php echo $songTitle; ?> </h2>
+            <p> <?php echo $chorusSleepwalingBmth; ?></p>
+            <!-- strlen serve per calcolare la lunghezza della stringa -->
+            <p>number of words: <?php echo strlen($chorusSleepwalingBmth); ?></p>
 
-    <div>
-        <!-- tramite echo e $nomeVariabile riporto nell'html quello che voglio -->
-        <h1> <?php echo $bandName; ?> </h1>
-        <h2> <?php echo $songTitle; ?> </h2>
-        <p> <?php echo $chorusSleepwalingBmth; ?></p>
-        <!-- strlen serve per calcolare la lunghezza della stringa -->
-        <p>number of words: <?php echo strlen($chorusSleepwalingBmth); ?></p>
-    </div>
-
-    <div>
-        <h4>Censored Chorus</h4>
-        <p> <?php echo $censoredWord; ?></p>
-        <p>number of words: <?php echo strlen($censoredWord); ?></p>
-
-
-    </div>
+            <label for="censor">Which word do you wanna censor?</label>
+            <input type="text" name="censoredWord" id="censoredWord">
+            <button type="submit">Replace</button>
+            <!-- scelgo la parola da rimpiazzare dentro '', '' inserisco la parola con cui voglio rimpiazzarla, inserisco il testo dentro la quale voglio sostituirla. il tutto dentro str_replace -->
+            <p><?php echo str_replace($_GET['censoredWord'], '***', $chorusSleepwalingBmth); ?>
+ </p>
+        </div>
+    </form>
 </body>
 </html>
 
